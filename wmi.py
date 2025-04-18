@@ -334,8 +334,8 @@ def to_time(wmi_time):
     minutes = int_or_none(wmi_time, 10, 12)
     seconds = int_or_none(wmi_time, 12, 14)
     microseconds = int_or_none(wmi_time, 15, 21)
-    timezone = wmi_time[22:]
-    if timezone == "***":
+    timezone = wmi_time[21:]
+    if timezone.endswith('***', 1, 4):
         timezone = None
 
     return year, month, day, hours, minutes, seconds, microseconds, timezone
